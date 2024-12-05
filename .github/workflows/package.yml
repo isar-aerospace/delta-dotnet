@@ -159,5 +159,5 @@ jobs:
             src/DeltaLake/bin/Release/*.snupkg
       - name: Push nuget artifacts
         run: |
-          dotnet nuget add source --username USERNAME --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/isar-aerospace/index.json"
-          dotnet nuget push .\src\DeltaLake\bin\Release\DeltaLake.Net.*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "github" --skip-duplicate
+          dotnet nuget add source --username ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.REGISTRY_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/isar-aerospace/index.json"
+          dotnet nuget push .\src\DeltaLake\bin\Release\DeltaLake.Net.*.nupkg --api-key ${{ secrets.REGISTRY_TOKEN }} --source "github" --skip-duplicate
